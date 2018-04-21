@@ -1,9 +1,15 @@
 @import "font-imports.scss";
 
-@import "resets.scss";
+@import "_resets.scss";
+@import "_vars.scss";
+@import "_inc.scss";
+
+@import "navbar.scss"; 
 
 @import "login.scss";
 @import "register.scss";
+
+
 
 * { box-sizing: border-box; }
 html, body {

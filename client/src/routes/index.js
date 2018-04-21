@@ -3,6 +3,7 @@ import Counter from '../components/Counter';
 import Hello from '../components/Hello';
 import Login from '../views/Login';
 import Register from '../views/Register';
+import Home from '../views/Home';
 
 
 export default [
@@ -21,6 +22,10 @@ export default [
             {
                 path: '/register',
                 component: Register,
+            },
+            {
+                path: '/home',
+                component: Home,
             },
             
         ],
