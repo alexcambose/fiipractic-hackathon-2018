@@ -1,12 +1,14 @@
+import App from '../views/App';
 import Counter from '../components/Counter';
 import Hello from '../components/Hello';
 import Login from '../views/Login';
+import Register from '../views/Register';
 
 
 export default [
     {
         path: '/',
-        component: Login,
+        component: App,
         routes: [
             {
                 path: '/hello',
@@ -15,6 +17,10 @@ export default [
             {
                 path: '/login',
                 component: Login,
+            },
+            {
+                path: '/register',
+                component: Register,
             },
             
         ],

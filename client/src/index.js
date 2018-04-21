@@ -5,6 +5,7 @@ import App from './App';
 import './assets/styles/index.scss';
 import store from './redux/index';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import 'babel-polyfill';
 
 const div = document.createElement('div');
 div.id = 'app';

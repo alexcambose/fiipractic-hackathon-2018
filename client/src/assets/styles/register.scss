@@ -1,18 +1,17 @@
-.login-section {
+.register-section {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh !important;
-    background-image: url('https://dy00k1db5oznd.cloudfront.net/wp-content/uploads/2017/06/35219788806_ad0dbc7d2a_k-1280x720.jpg');
+    background-image: url('https://images.unsplash.com/photo-1461632830798-3adb3034e4c8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9943985ab543c6dc5300988f49545e73&w=1000&q=80');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    .login-box {
-        height: 60%;
+    .register-box {
+        height: auto;
         width: 60%;
         display: flex;
         .left-side {
-            height: 100%;
             background-color: rgba(rgb(50, 135, 255), .8);
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
@@ -34,8 +33,9 @@
             form {
                 height: 100%;
                 display: grid;
-                grid-template-rows: 20% 60% auto;
+                grid-template-rows: 5% 85% auto;
                 .title {
+                    margin-bottom: 5%;
                     color: rgba(rgb(50, 135, 255), .8);
                     font-size: 1.5rem;
                 }
@@ -44,7 +44,7 @@
                         width: 100% !important;
                     }
                 }
-                .login-register {
+                .register-login {
                     margin-top: 10px;
                     padding: 5px;
                     text-align: center;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 const styles = {
   underlineStyle: {
@@ -55,7 +55,7 @@ class LoginContainer extends Component {
                 fullWidth={true}
                 labelColor="white"
               />
-              <div className="login-register">sau inregistreaza-te aici</div>
+              <div className="login-register"> <Link to="/register">sau inregistreaza-te aici</Link></div>
             </div>
           </form>
         </div>
