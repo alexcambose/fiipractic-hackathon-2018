@@ -1,20 +1,19 @@
-const { asyncValidationErrors } = require('express-validator/check');
 const utils = require('../utils');
 const config = require('../../config');
 const _ = require('lodash');
 
-const express = require('express');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 //POST
 module.exports.register = async (req, res) => {
-    let { first_name, last_name, email, password } = req.body;
+    let { first_name, last_name, email, username, password } = req.body;
     try {
         await req.asyncValidationErrors();
         const user = new User({
             first_name,
             last_name,
+            username,
             email,
             password
         });

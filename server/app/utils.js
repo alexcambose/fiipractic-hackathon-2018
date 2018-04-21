@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const config = require('../config');
 
 const winston = require('winston');
@@ -14,4 +15,10 @@ module.exports.warn = message => {
 };
 module.exports.error = (message, title) => {
     winston.error((title ? `[${title}]: ` : '') + message);
+};
+module.exports.createSecret = (time, isStudent) => { // time in minutes
+    return jwt.sign(JSON.stringify({ time: time*60*1000, date: Date.now(), isStudent }), config.jwt.secret);
+};
+module.exports.verifySecret = token => {
+    return jwt.verify(token, config.jwt.secret);
 };
