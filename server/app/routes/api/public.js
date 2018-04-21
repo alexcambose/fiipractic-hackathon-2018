@@ -19,6 +19,7 @@ publicRoutes.get('/createSecret', (req, res) => {
         return res.status(401).send('Parola incorecta');
     }
 });
+publicRoutes.get('/user/checkEmailValid', userController.checkEmailValid);
 publicRoutes.post('/user/register',checkSchema({
     first_name: { exists: true, errorMessage: lang.t('errors.first_name') },
     last_name: { exists: true, errorMessage: lang.t('errors.last_name') },

@@ -104,3 +104,10 @@ module.exports.delete = async (req, res) => {
         res.json({success: false, error});
     }
 };
+
+//GET
+module.exports.checkEmailValid = async (req, res) => {
+    const { email } = req.query;
+    const user = await User.findOne({email});
+    res.send(!user);
+};

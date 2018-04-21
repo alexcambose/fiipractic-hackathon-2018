@@ -10,7 +10,7 @@ const groupSchema = new mongoose.Schema({
         unique: true,
     },
     photo: {
-        type: ObjectId, ref: "Photo",
+        // type: ObjectId, ref: "Photo",
     }
 });
 
