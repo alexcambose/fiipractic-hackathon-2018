@@ -21,10 +21,10 @@ export default class Navbar extends Component {
                             <div className="navbar-item navbar-dropdown">
                                 <span>???</span>
                                 <div className="dropdown-content">
-                                    <a href="" class="">Profilul meu</a>
-                                    <a href="" class="">Grupurile mele</a>
-                                    <a href="" class="">Grupurile mele</a>
-                                    <a href="" class="">Grupurile mele</a>
+                                    <a href="" className="">Profilul meu</a>
+                                    <a href="" className="">Grupurile mele</a>
+                                    <a href="" className="">Grupurile mele</a>
+                                    <a href="" className="">Grupurile mele</a>
                                 </div>
                             </div>
                         </div>

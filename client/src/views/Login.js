@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'proptypes';
 import LoginContainer from '../containers/LoginContainer';
+import {Redirect} from "react-router";
+import {connect} from "react-redux";
 
 class Login extends Component {
     state = {};
@@ -8,7 +10,7 @@ class Login extends Component {
     render() {
         return (
             <section className="login-section">
-                {localStorage.getItem('token') && <Redirect to="/home" />}
+                {this.props.logged && <Redirect to="/home" />}
 
                 <LoginContainer />
             </section>
@@ -18,4 +20,8 @@ class Login extends Component {
 
 Login.propTypes = {};
 
-export default Login;
+export default connect(
+    state => ({
+        logged: state.user.is_logged,
+    }),
+)(Login);

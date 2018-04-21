@@ -76,8 +76,8 @@ class LoginContainer extends Component {
         this.setState({ isLoading: true });
         try {
             await validate.async(this.state, rules);
-            await this.props.register(this.state.username, this.state.first_name, this.state.last_name, this.state.email, this.state.password, this.state.code);
             this.setState({ errors: {}, isLoading: false });
+            await this.props.register(this.state.username, this.state.first_name, this.state.last_name, this.state.email, this.state.password, this.state.code);
         } catch (errors) {
             this.setState({ errors, isLoading: false });
         }

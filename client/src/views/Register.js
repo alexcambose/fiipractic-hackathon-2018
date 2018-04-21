@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'proptypes';
 import RegisterContainer from '../containers/RegisterContainer';
+import {Redirect} from "react-router";
+import {connect} from "react-redux";
 
 class Register extends Component {
     state = {};
@@ -8,7 +10,7 @@ class Register extends Component {
     render() {
         return (
             <section className="register-section">
-                {localStorage.getItem('token') && <Redirect to="/home" />}
+                {this.props.logged && <Redirect to="/home" />}
 
                 <RegisterContainer />
             </section>
@@ -18,4 +20,8 @@ class Register extends Component {
 
 Register.propTypes = {};
 
-export default Register;
+export default connect(
+    state => ({
+        logged: state.user.is_logged,
+    }),
+)(Register);

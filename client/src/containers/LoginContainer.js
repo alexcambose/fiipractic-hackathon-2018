@@ -17,8 +17,8 @@ const styles = {
 
 class LoginContainer extends Component {
     state = {
-        email: "",
-        password: "",
+        email: "email@email.com",
+        password: "123456",
         errors: {},
         isLoading: true
     };
@@ -55,7 +55,7 @@ class LoginContainer extends Component {
 
 
   render() {
-    let { errors }= this.state;
+    let { errors, email, password }= this.state;
     return (
       <div className="login-box">
         <div className="left-side"> Lorem ipsum dolor situm. </div>
@@ -65,6 +65,7 @@ class LoginContainer extends Component {
             <div className="fields">
               <TextField
                 hintText="E-mail"
+                value={email}
                 name="email"
                 underlineFocusStyle={styles.underlineStyle}
                 errorText={errors.email}
@@ -72,6 +73,7 @@ class LoginContainer extends Component {
               />
               <TextField
                 hintText="Password"
+                value={password}
                 floatingLabelText="Password"
                 name="password"
                 type="password"
