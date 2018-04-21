@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
 import { withRouter, Link } from "react-router-dom";
+import validate from "validate.js";
+import { connect } from 'react-redux';
+import { login } from '../redux/actions/user';
 
 const styles = {
   underlineStyle: {
@@ -13,19 +16,46 @@ const styles = {
 };
 
 class LoginContainer extends Component {
-  state = {
-    username: "",
-    password: ""
-  };
+    state = {
+        email: "",
+        password: "",
+        errors: {},
+        isLoading: true
+    };
 
-  handleSubmit = () => {
-    // validation -> check just username
-    // if validation
-    this.props.history.push("/asd");
-    // else alert
-  };
+    handleSubmit = async e => {
+        e.preventDefault();
+        const rules = {
+            email: {
+                // emailUnique: true,
+                email: true,
+            },
+            password: {
+                length: {
+                    minimum: 6,
+                    maximum: 30,
+                },
+            },
+        };
+        this.setState({ isLoading: true });
+        try {
+            await validate.async(this.state, rules);
+            await this.props.login(this.state.email, this.state.password);
+            this.setState({ errors: {}, isLoading: false });
+        } catch (errors) {
+            this.setState({ errors, isLoading: false });
+        }
+    };
+
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+
 
   render() {
+    let { errors }= this.state;
     return (
       <div className="login-box">
         <div className="left-side"> Lorem ipsum dolor situm. </div>
@@ -34,9 +64,11 @@ class LoginContainer extends Component {
             <div className="title">Log in</div>
             <div className="fields">
               <TextField
-                hintText="Username"
-                name="username"
+                hintText="E-mail"
+                name="email"
                 underlineFocusStyle={styles.underlineStyle}
+                errorText={errors.email}
+                onChange={this.handleChange}                
               />
               <TextField
                 hintText="Password"
@@ -44,7 +76,9 @@ class LoginContainer extends Component {
                 name="password"
                 type="password"
                 underlineFocusStyle={styles.underlineStyle}
+                errorText={errors.password}                
                 floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+                onChange={this.handleChange}                
               />
             </div>
             <div>
@@ -64,4 +98,10 @@ class LoginContainer extends Component {
   }
 }
 
-export default withRouter(LoginContainer);
+const mapStateToProps = state => ({
+
+});
+
+export default connect(mapStateToProps, {
+  login
+})(LoginContainer);
