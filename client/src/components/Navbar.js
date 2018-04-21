@@ -5,6 +5,8 @@ import { NavLink } from 'react-router-dom';
 
 export default class Navbar extends Component {  
     render() {
+        const { user } = this.props;
+        console.log(user);
         return (
             <React.Fragment>
                 <nav className="navbar">
@@ -17,14 +19,13 @@ export default class Navbar extends Component {
                             </div>
                         </div>
                         <div className="navbar-end">
-                            <NavLink to='/' exact className="navbar-item" activeClassName="active-item">Home</NavLink>
+                            <NavLink to='/' exact className="navbar-item"><FontAwesomeIcon icon="users" /> &nbsp; Grupurile mele</NavLink>
+                            <NavLink to='/' exact className="navbar-item" activeClassName="active-item"><FontAwesomeIcon icon="home" /> &nbsp; Home</NavLink>
                             <div className="navbar-item navbar-dropdown">
-                                <span>???</span>
+                                <span>Salut, {user.first_name + " " + user.last_name}</span>
                                 <div className="dropdown-content">
-                                    <a href="" className="">Profilul meu</a>
-                                    <a href="" className="">Grupurile mele</a>
-                                    <a href="" className="">Grupurile mele</a>
-                                    <a href="" className="">Grupurile mele</a>
+                                    <NavLink to={"/profile/" + user.username} exact className="dropdown-link"><FontAwesomeIcon icon="user" /> &nbsp; Profilul meu</NavLink>
+                                    <NavLink to='/settings' exact className="dropdown-link"><FontAwesomeIcon icon="cog" /> &nbsp; Setarile mele</NavLink>
                                 </div>
                             </div>
                         </div>

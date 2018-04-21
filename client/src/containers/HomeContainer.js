@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 
-export class HomeContainer extends Component {
+export default class HomeContainer extends Component {
   render() {
     return (
       <div>
-        
+        {/* todo */}
       </div>
     )
   }
 }
-
-export default HomeContainer

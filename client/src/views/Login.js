@@ -11,7 +11,6 @@ class Login extends Component {
         return (
             <section className="login-section">
                 {this.props.logged && <Redirect to="/home" />}
-
                 <LoginContainer />
             </section>
         );

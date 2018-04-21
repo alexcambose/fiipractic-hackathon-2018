@@ -1,6 +1,6 @@
 import axios from 'axios';
 import config from '../../config';
-import { USER_REGISTER_FAIL, USER_REGISTER_SUCCESS, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL } from '../types';
+import { USER_REGISTER_FAIL, USER_REGISTER_SUCCESS, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL, GET_USER_BY_TOKEN } from '../types';
 import history from '../history';
 
 export const register = (username, first_name, last_name, email, password) => async dispatch => {
@@ -16,7 +16,6 @@ export const register = (username, first_name, last_name, email, password) => as
 };
 
 export const login = (email, password) => async dispatch => {
-    console.log(email);
     axios.post(config.apiUrl + 'user/login', {email, password})
     .then(res => {
         console.log(res);
@@ -28,4 +27,13 @@ export const login = (email, password) => async dispatch => {
         }
     })
     .catch(err => console.log(err));
+};
+
+export const getUserByToken = token => dispatch => {
+    console.log('asdasdasda');
+    axios.get(config.apiUrl + 'user', {params: {token}})
+    .then(res => {
+        console.log(res);
+        dispatch({ type: GET_USER_BY_TOKEN, payload: res.data });        
+    }).catch(err => console.log(err));
 };

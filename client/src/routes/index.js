@@ -1,22 +1,15 @@
 import App from '../views/App';
-import Counter from '../components/Counter';
-import Hello from '../components/Hello';
 import Login from '../views/Login';
 import Register from '../views/Register';
 import Home from '../views/Home';
 import Groups from '../views/Groups';
 import Group from "../views/Group";
-
-
+import Profile from '../views/Profile';
 export default [
     {
         path: '/',
         component: App,
         routes: [
-            {
-                path: '/hello',
-                component: Hello,
-            },
             {
                 path: '/login',
                 component: Login,
@@ -40,7 +33,15 @@ export default [
                     },
 
                 ],
-            },
+            },        
+            {
+                path: '/profile/:username',
+                component: Profile,
+            },         
+            {
+                path: '/settings',
+                component: Profile,
+            },         
         ],
     },
 ];

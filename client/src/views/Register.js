@@ -11,7 +11,6 @@ class Register extends Component {
         return (
             <section className="register-section">
                 {this.props.logged && <Redirect to="/home" />}
-
                 <RegisterContainer />
             </section>
         );
