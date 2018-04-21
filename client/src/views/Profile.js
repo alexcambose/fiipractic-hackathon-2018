@@ -11,7 +11,7 @@ class Profile extends Component {
     render() {
         return (
             <section className="Profile-section">
-                <Navbar user={this.props.user} />
+                <Navbar />
                 <ProfileContainer user={this.props.user} />
             </section>
         );
