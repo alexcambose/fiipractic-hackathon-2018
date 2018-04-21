@@ -1,16 +1,22 @@
 import Counter from '../components/Counter';
 import Hello from '../components/Hello';
+import Login from '../views/Login';
 
 
 export default [
     {
         path: '/',
-        component: Counter,
+        component: Login,
         routes: [
             {
-                path: 'hello',
+                path: '/hello',
                 component: Hello,
             },
+            {
+                path: '/login',
+                component: Login,
+            },
+            
         ],
     },
 ];
