@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
 import { withRouter, Link } from "react-router-dom";
-import ValidationErrors from "../components/ValidationErrors";
-import validate from "validate.js";
+import validate from "../utils/validateObject";
+import { register } from '../redux/actions/user';
+import { connect } from 'react-redux';
 
 const styles = {
     underlineStyle: {
@@ -16,21 +17,23 @@ const styles = {
 
 class LoginContainer extends Component {
     state = {
-        username: "",
-        first_name: "",
-        last_name: "",
-        password: "",
-        rpassword: "",
-        email: "",
-        code: "",
+        username: "eusuntalex",
+        first_name: "alex",
+        last_name: "cambose",
+        password: "123456",
+        rpassword: "123456",
+        email: "email@email.com",
+        code: null,
         isLoading: false,
         errors: {},
     };
 
     handleSubmit = async e => {
+
         e.preventDefault();
         const rules = {
             username: {
+                usernameUnique: true,
                 presence: true,
                 length: {
                     minimum: 4,
@@ -52,7 +55,7 @@ class LoginContainer extends Component {
                 },
             },
             email: {
-                // emailUnique: true,
+                emailUnique: true,
                 email: true,
             },
             password: {
@@ -64,9 +67,11 @@ class LoginContainer extends Component {
             rpassword: {
                 equality: "password",
             },
-            code: {
-
-            }
+            // code: {
+            //     // codeValid: true,
+            //     // emailUnique: true,
+            //     presence: true,
+            // }
         };
         this.setState({ isLoading: true });
         try {
@@ -76,7 +81,6 @@ class LoginContainer extends Component {
         } catch (errors) {
             this.setState({ errors, isLoading: false });
         }
-        console.log(this.state);
     };
 
     handleChange = e => {
@@ -140,15 +144,15 @@ class LoginContainer extends Component {
                                 floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
                                 onChange={this.handleChange}
                             />
-                            <TextField
-                                errorText={errors.code}
-                                hintText="Cod"
-                                name="code"
-                                type="text"
-                                underlineFocusStyle={styles.underlineStyle}
-                                floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-                                onChange={this.handleChange}
-                            />
+                            {/*<TextField*/}
+                                {/*errorText={errors.code}*/}
+                                {/*hintText="Cod"*/}
+                                {/*name="code"*/}
+                                {/*type="text"*/}
+                                {/*underlineFocusStyle={styles.underlineStyle}*/}
+                                {/*floatingLabelFocusStyle={styles.floatingLabelFocusStyle}*/}
+                                {/*onChange={this.handleChange}*/}
+                            {/*/>*/}
                         </div>
                         <div>
                             <RaisedButton
@@ -161,11 +165,10 @@ class LoginContainer extends Component {
                             <div className="register-login"> <Link to="/login">sau logheaza-te aici</Link></div>
                         </div>
                     </form>
-                    <ValidationErrors errors={errors} />
                 </div>
             </div>
         );
     }
 }
 
-export default withRouter(LoginContainer);
+export default connect(null, { register })(withRouter(LoginContainer));

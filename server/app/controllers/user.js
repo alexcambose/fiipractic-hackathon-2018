@@ -111,3 +111,18 @@ module.exports.checkEmailValid = async (req, res) => {
     const user = await User.findOne({email});
     res.send(!user);
 };
+
+//GET
+module.exports.checkUsernameValid = async (req, res) => {
+    const { username } = req.query;
+    const user = await User.findOne({username});
+    res.send(!user);
+};
+
+//GET
+module.exports.checkCodeValid = async (req, res) => {
+    const { code } = req.query;
+
+    res.send(utils.verifySecret(code));
+    // res.send('aaa');
+};

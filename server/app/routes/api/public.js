@@ -20,6 +20,8 @@ publicRoutes.get('/createSecret', (req, res) => {
     }
 });
 publicRoutes.get('/user/checkEmailValid', userController.checkEmailValid);
+publicRoutes.get('/user/checkUsernameValid', userController.checkUsernameValid);
+publicRoutes.get('/user/checkCodeValid', userController.checkCodeValid);
 publicRoutes.post('/user/register',checkSchema({
     first_name: { exists: true, errorMessage: lang.t('errors.first_name') },
     last_name: { exists: true, errorMessage: lang.t('errors.last_name') },
@@ -49,19 +51,12 @@ publicRoutes.post('/user/register',checkSchema({
             options: { min: 6, max: 30 }
         },
     },
-    code: {
-        custom: {
-            options: code => {
-                const tokenData = utils.verifySecret(code);
-                if(tokenData) {
-                    const { time, date } = tokenData;
-                    return (Date.now() - date < time);
-                }
-                return false;
-            },
-            errorMessage: lang.t('errors.authentication.code'),
-        },
-    },
+    // code: {
+    //     custom: {
+    //         options: code => utils.verifySecret(code),
+    //         errorMessage: lang.t('errors.authentication.code'),
+    //     },
+    // },
 }), userController.register);
 
 publicRoutes.post('/user/login', checkSchema({

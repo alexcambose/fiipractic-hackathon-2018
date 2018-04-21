@@ -20,5 +20,11 @@ module.exports.createSecret = (time, isStudent) => { // time in minutes
     return jwt.sign(JSON.stringify({ time: time*60*1000, date: Date.now(), isStudent }), config.jwt.secret);
 };
 module.exports.verifySecret = token => {
-    return jwt.verify(token, config.jwt.secret);
+    const tokenData = jwt.verify(token, config.jwt.secret);
+    if(tokenData) {
+        const { time, date } = tokenData;
+        // return (Date.now() - date < time);
+        return true;
+    }
+    return true;
 };
