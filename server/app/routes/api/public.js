@@ -75,13 +75,5 @@ publicRoutes.post('/user/login', checkSchema({
         }
     }
 }), userController.login);
-publicRoutes.post('/group/create', checkSchema({
-    name: { exists: true, errorMessage: lang.t('errors.group.name') },
-    urlname: {
-        custom: {
-            options: urlname => Group.isGroupNameUnique(urlname),
-            errorMessage: lang.t('errors.email.not_found'),
-        }
-    },
-}));
+
 module.exports = publicRoutes;

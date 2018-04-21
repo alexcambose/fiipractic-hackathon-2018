@@ -1,16 +1,22 @@
 const Photo = require('./Photo');
 const mongoose = require('mongoose');
 
+const ObjectId = mongoose.Schema.Types.ObjectId;
 const groupSchema = new mongoose.Schema({
     name: {
         type: String,
+        required: true
     },
     urlname: {
         type: String,
         unique: true,
+        required: true
     },
-    photo: {
-        // type: ObjectId, ref: "Photo",
+    image: {
+        type: ObjectId, ref: "Photo",
+    },
+    author: {
+        type: ObjectId, ref: "User",
     }
 });
 

@@ -26,7 +26,13 @@ module.exports = {
             code: 'Codul de inregistrare este invalid.',
         },
         group: {
-            name: 'Gruput trebuie sa aiba un nume.',
-        }
+            name: 'Grupul trebuie sa aiba un nume.',
+            inexistent: 'Grupul nu exista',
+            urlname: 'Grupul trebuie sa aiba un url unic.'
+        },
+        post: {
+            length: 'Postarea nu are suficiente caractere',
+            inexistent: 'Postarea cu acest identificator nu a putut fi gasita.',
+        },
     }
 };

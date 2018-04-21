@@ -90,7 +90,7 @@ class LoginContainer extends Component {
     };
 
     render() {
-        let errors = this.state.errors;
+        const { errors, username, first_name, last_name, email, password, rpassword } = this.state;
         return (
             <div className="register-box">
                 <div className="left-side"> Lorem ipsum dolor situm. </div>
@@ -100,6 +100,7 @@ class LoginContainer extends Component {
                         <div className="fields">
                             <TextField
                                 errorText={errors.username}
+                                value={username}
                                 hintText="Username"
                                 name="username"
                                 underlineFocusStyle={styles.underlineStyle}
@@ -107,6 +108,7 @@ class LoginContainer extends Component {
                             />
                             <TextField
                                 errorText={errors.last_name}
+                                value={first_name}
                                 hintText="Nume"
                                 name="last_name"
                                 underlineFocusStyle={styles.underlineStyle}
@@ -114,6 +116,7 @@ class LoginContainer extends Component {
                             />
                             <TextField
                                 errorText={errors.first_name}
+                                value={last_name}
                                 hintText="Prenume"
                                 name="first_name"
                                 underlineFocusStyle={styles.underlineStyle}
@@ -121,6 +124,7 @@ class LoginContainer extends Component {
                             />
                             <TextField
                                 errorText={errors.email}
+                                value={email}
                                 hintText="Email"
                                 name="email"
                                 underlineFocusStyle={styles.underlineStyle}
@@ -128,6 +132,7 @@ class LoginContainer extends Component {
                             />
                             <TextField
                                 errorText={errors.password}
+                                value={password}
                                 hintText="Parola"
                                 name="password"
                                 type="password"
@@ -137,6 +142,7 @@ class LoginContainer extends Component {
                             />
                             <TextField
                                 errorText={errors.rpassword}
+                                value={rpassword}
                                 hintText="Repeta parola"
                                 name="rpassword"
                                 type="password"

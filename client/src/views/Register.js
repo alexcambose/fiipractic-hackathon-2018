@@ -8,6 +8,8 @@ class Register extends Component {
     render() {
         return (
             <section className="register-section">
+                {localStorage.getItem('token') && <Redirect to="/home" />}
+
                 <RegisterContainer />
             </section>
         );

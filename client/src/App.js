@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Counter from './components/Counter';
 import RoutesContainer from './routes/RoutesContainer';
 
 

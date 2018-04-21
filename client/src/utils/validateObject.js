@@ -21,20 +21,4 @@ validate.validators.codeValid = code => new validate.Promise(resolve => {
             else resolve();
         });
 });
-// validate.validators.usernameUnique = username => new validate.Promise(resolve => {
-//     // client.query({
-//     //     query: gql`
-//     //             query userByUsername($username: String!) {
-//     //             userByUsername(username: $username) {
-//     //                 _id
-//     //             }
-//     //         }
-//     //     `,
-//     //     variables: { username },
-//     }).then(res => {
-//         if (res.data.userByUsername) resolve('is already taken');
-//         else resolve();
-//     });
-// });
-
 export default validate;

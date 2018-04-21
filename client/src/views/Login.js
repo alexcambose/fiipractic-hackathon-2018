@@ -8,6 +8,8 @@ class Login extends Component {
     render() {
         return (
             <section className="login-section">
+                {localStorage.getItem('token') && <Redirect to="/home" />}
+
                 <LoginContainer />
             </section>
         );
