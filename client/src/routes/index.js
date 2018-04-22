@@ -9,6 +9,9 @@ import CreateGroup from "../views/CreateGroup";
 import AllGroups from "../views/AllGroups";
 import Settings from '../views/Settings';
 import Timeline from '../views/Timeline';
+import Message from "../views/Message";
+import Welcome from "../views/Welcome";
+
 export default [
     {
         path: '/',
@@ -17,6 +20,10 @@ export default [
             {
                 path: '/login',
                 component: Login,
+            },
+            {
+                path: '/welcome',
+                component: Welcome,
             },
             {
                 path: '/register',
@@ -42,7 +49,11 @@ export default [
                     {
                         path: 'groupsall',
                         component: AllGroups
-                    }
+                    },
+                    {
+                        path: '/mesaje',
+                        component: Message,
+                    },
                 ],
             },
             {
@@ -57,6 +68,7 @@ export default [
                 path: '/timeline',
                 component: Timeline,
             },
+
         ]
     },
 ];

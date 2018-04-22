@@ -40,7 +40,7 @@ class Post extends React.Component {
                 <CardHeader
                     title={user.first_name + " " + user.last_name}
                     subtitle={user.username}
-                    avatar="images/jsa-128.jpg"
+                    avatar="https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png"
                 />
                 <CardText>
                     { post.content }

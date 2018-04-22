@@ -12,6 +12,9 @@ class SettingContainer extends Component {
       <div className="container settings-container">
           <div>
             <h3 className="settings-title">Setari</h3>
+
+              <img src="https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png" style={{width: '20%', borderRadius: '999%', boxShadow: '0 0 10px black', marginBottom: '14px'}}/><br/>
+                  <input type="file"  /><br/>
             <TextField
             id="text-field-default"
             className="names"

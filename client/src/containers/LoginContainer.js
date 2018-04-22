@@ -58,7 +58,7 @@ class LoginContainer extends Component {
     let { errors, email, password }= this.state;
     return (
       <div className="login-box">
-        <div className="left-side"> Lorem ipsum dolor situm. </div>
+        <div className="left-side"><em>Invata cu stil <br/> Sa fii versatil</em></div>
         <div className="right-side">
           <form onSubmit={this.handleSubmit} method="POST">
             <div className="title">Log in</div>

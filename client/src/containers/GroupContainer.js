@@ -4,7 +4,7 @@ import config from "../config";
 import {withRouter} from "react-router";
 import {connect} from "react-redux";
 import GroupUsers from "../components/GroupUsers";
-import {Paper} from "material-ui";
+import {Paper, RaisedButton} from "material-ui";
 import AddPost from "../components/group/AddPost";
 import {getGroup} from "../redux/actions/group";
 import Post from "../components/Post";
@@ -24,7 +24,7 @@ class GroupContainer extends React.Component {
         return (
             <React.Fragment>
                 <div className="group-header">
-                    <h1>{group.name}</h1>
+                    <h1 style={{fontSize: '2em'}}>{group.name}</h1>
                 </div>
                 <div className="container">
                     <div className="group-body">
@@ -32,6 +32,8 @@ class GroupContainer extends React.Component {
                             <Paper>
                                 <GroupUsers users={groupUsers} />
                             </Paper>
+                            <RaisedButton label="Adauga teme" fullWidth={true} primary={true} style={{margin: '10px 0'}}/>
+                            <RaisedButton label="Adauga chestionare"  fullWidth={true} primary={true} />
                         </div>
                         <div className="group-content">
                             <AddPost />
