@@ -20,6 +20,7 @@ class Navbar extends Component {
                             </div>
                         </div>
                         <div className="navbar-end">
+                            <NavLink to='/home/groupsall' exact className="navbar-item"><FontAwesomeIcon icon="users" /> &nbsp; Grupuri</NavLink>
                             <NavLink to='/home/groups' exact className="navbar-item"><FontAwesomeIcon icon="users" /> &nbsp; Grupurile mele</NavLink>
                             <NavLink to='/' exact className="navbar-item" activeClassName="active-item"><FontAwesomeIcon icon="home" /> &nbsp; Home</NavLink>
                             <div className="navbar-item navbar-dropdown">

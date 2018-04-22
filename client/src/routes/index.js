@@ -5,6 +5,9 @@ import Home from '../views/Home';
 import Groups from '../views/Groups';
 import Group from "../views/Group";
 import Profile from '../views/Profile';
+import CreateGroup from "../views/CreateGroup";
+import AllGroups from "../views/AllGroups";
+
 export default [
     {
         path: '/',
@@ -31,9 +34,16 @@ export default [
                         path: '/groups',
                         component: Groups,
                     },
-
+                    {
+                        path: 'createGroup',
+                        component: CreateGroup
+                    },
+                    {
+                        path: 'groupsall',
+                        component: AllGroups
+                    }
                 ],
-            },        
+            },
             {
                 path: '/profile/:username',
                 component: Profile,
@@ -41,7 +51,7 @@ export default [
             {
                 path: '/settings',
                 component: Profile,
-            },
+            }
         ],
     },
 ];

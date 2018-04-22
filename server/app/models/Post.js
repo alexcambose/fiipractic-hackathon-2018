@@ -12,14 +12,20 @@ const postSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    deadline: {
+        type: String,
+        default: '',
+    },
     author: {
         type: ObjectId,
         required: true,
     },
     likes: {
         type: [ObjectId],
-        default: []
+        default: [],
     }
+}, {
+    usePushEach: true
 });
 postSchema.statics.exists = function (id) {
     return new Promise((resolve, reject) => {

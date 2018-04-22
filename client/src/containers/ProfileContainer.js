@@ -21,7 +21,7 @@ class ProfileContainer extends Component {
     content: '',
     type: 1,
     errors: [],
-  }
+  };
 
   componentDidMount () {
     this.props.getUserByUsername(this.props.match.params.username); // and posts

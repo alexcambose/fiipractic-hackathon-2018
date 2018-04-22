@@ -5,6 +5,8 @@ const _ = require('lodash');
 
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+
+const Group = require('../models/Group');
 const Post = require('../models/Post');
 
 //POST
@@ -141,4 +143,50 @@ module.exports.checkCodeValid = async (req, res) => {
 
     res.send(utils.verifySecret(code));
     // res.send('aaa');
+};
+
+module.exports.joinLeave = async (req, res) => {
+    const { id } = req.body;
+    const { _id } = res.locals.user;
+    const user = await User.findById(_id);
+console.log(user);
+    // try {
+        const index = user.groups.findIndex(e => e.id === id);
+        if(index !== -1) {
+            user.groups.splice(index, 1);
+        } else {
+            user.groups.push(id);
+        }
+        await user.save();
+
+        utils.info(`User '${user.first_name} ${user.last_name}' deleted!`);
+        res.json({success: true, groups: user.groups});
+    // } catch(error) {
+    //     res.json({success: false, error});
+    // }
+};
+
+module.exports.groups = async (req, res) => {
+    const { urlname } = req.query;
+    const { _id } = res.locals.user;
+
+    try {
+        const groups = [];
+
+        let user = await User.findById(_id);
+        if(urlname) {
+            let group = await Group.findOne({ urlname });
+            const groupUsers = await User.find({ groups: group._id });
+
+            return res.json({ success: true, group, groupUsers });
+        }
+        for(groupId of user.groups) {
+            let group = await Group.findById(groupId);
+            groups.push({group});
+        }
+        res.json({success: true, groups});
+    } catch(error) {
+        utils.error(error);
+        res.json({success: false});
+    }
 };

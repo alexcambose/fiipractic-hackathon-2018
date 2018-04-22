@@ -12,6 +12,9 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    groups: {
+        type: [ObjectId], ref: "Group",
+    },
     profileImage: {
         type: ObjectId, ref: "Photo",
     },
@@ -19,6 +22,8 @@ const userSchema = new mongoose.Schema({
         created_at: {type: Date, default: Date.now},
         updated_at: {type: Date, default: Date.now},
     }
+}, {
+    usePushEach: true
 });
 
 userSchema.statics.isEmailUnique = function (email) {

@@ -1,6 +1,7 @@
 import {GROUP_ADD, GROUP_ADD_POST, GROUP_FETCH} from "../types";
 import axios from 'axios';
 import config from "../../config";
+import history from "../history";
 
 export const getGroup = urlname => async dispatch => {
     let data = await axios.get(config.apiUrl + 'group', { params: { urlname, token: localStorage.getItem('token') }});
@@ -24,7 +25,7 @@ export const createPost = (urlname, content, type, deadline = null) => dispatch 
 export const createGroup = (name, urlname) => dispatch => {
     axios.put(config.apiUrl + 'group', { name, urlname, token: localStorage.getItem('token') })
         .then(({ data }) => {
-            console.log(data);
             dispatch({ type: GROUP_ADD });
+            history.push('/home/groups');
         })
 };

@@ -1,4 +1,5 @@
 const Post = require('../models/Post');
+const Group = require('../models/Group');
 const utils = require('../utils');
 
 
@@ -36,19 +37,38 @@ module.exports.getPostsByUser = (req, res) => {
     });
 }
 
+module.exports.get = async (req, res) => {
+    const { id } = req.query;
+    console.log(req.query);
+    try {
+        await req.asyncValidationErrors();
+        const post = await Post.findById(id);
+        res.json({success: true, post});
+        utils.info(`Post '${id}' got!`);
+    } catch(error) {
+        res.json({success: false, error});
+    }
+};
 module.exports.create = async (req, res) => {
-    const { content, type } = req.body;
+    const { content, type,deadline, urlname } = req.body;
 
     const userId = res.locals.user._id;
     try {
         await req.asyncValidationErrors();
         const post = new Post({
             content,
+            deadline,
             type,
             author: userId,
         });
         await post.save();
-        res.json({success: true});
+        if(urlname) {
+            const group = await Group.findOne({ urlname });
+            console.log(group)
+            group.posts.push(post._id);
+            group.save();
+        }
+        res.json({success: true, post});
         utils.info(`Post '${content}...' added!`);
     } catch(error) {
         res.json({success: false, error});
@@ -83,7 +103,7 @@ module.exports.likeDislike = async (req, res) => {
             post.likes.push(userId);
         }
         await post.save();
-        res.json({success: true});
+        res.json({success: true, post});
         utils.info(`User '${userId}' liked or disliked post ${post._id}!`);
     } catch(error) {
         res.json({success: false, error});

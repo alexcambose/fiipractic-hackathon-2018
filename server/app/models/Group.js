@@ -15,9 +15,14 @@ const groupSchema = new mongoose.Schema({
     image: {
         type: ObjectId, ref: "Photo",
     },
+    posts: {
+        type: [ObjectId], ref: "Post",
+    },
     author: {
         type: ObjectId, ref: "User",
     }
+}, {
+    usePushEach: true
 });
 
 
@@ -30,4 +35,5 @@ groupSchema.statics.isUrlNameUnique = function (urlname) {
             });
     });
 };
+
 module.exports = mongoose.model('Group', groupSchema);

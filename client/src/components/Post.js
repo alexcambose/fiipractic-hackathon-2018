@@ -4,6 +4,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import config from "../config";
 import {connect} from "react-redux";
+import {Chip} from "material-ui";
 
 class Post extends React.Component {
     constructor(props) {
@@ -24,8 +25,6 @@ class Post extends React.Component {
         axios.put(config.apiUrl + 'post/like', { id: this.state.post._id, token: localStorage.getItem('token') })
             .then(({ data }) => {
                 this.setState({ post: data.post });
-
-
             });
     };
 
@@ -36,6 +35,7 @@ class Post extends React.Component {
         if(post.type === 1) borderColor = '#BCB8FF';
         return (
             <Card style={{margin: '10px 14px', border: '1px solid ' + borderColor}} className="profile-post">
+
                 <CardHeader
                     title={user.first_name + " " + user.last_name}
                     subtitle={user.username}
@@ -43,11 +43,17 @@ class Post extends React.Component {
                 />
                 <CardText>
                     { post.content }
+                    <Chip
+                        style={{float: 'right'}}
+                    >
+                        Continut
+                    </Chip>
                 </CardText>
                 <CardActions>
                     <div className="btn-like">
                         <FontAwesomeIcon icon="heart" style={{cursor: 'pointer', color: post.likes.find(e => e === this.props.userId) ? 'red' : 'black', marginLeft: '6px'}} size="lg" onClick={this.toggleLike}/>
                     </div>
+
                 </CardActions>
             </Card>
         );

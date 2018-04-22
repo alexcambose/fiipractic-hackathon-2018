@@ -16,13 +16,14 @@ privateRoutes.post('/user/checkpassword', userController.checkPassword);
 
 privateRoutes.put('/group', checkSchema({
     name: { exists: true, errorMessage: lang.t('errors.group.name') },
-    urlname: {
-        custom: {
-            options: urlname => Group.isUrlNameUnique(urlname),
-            errorMessage: lang.t('errors.group.name'),
-        }
-    },
+    // urlname: {
+    //     custom: {
+    //         options: urlname => Group.isUrlNameUnique(urlname),
+    //         errorMessage: lang.t('errors.group.urlname'),
+    //     }
+    // },
 }), groupController.create);
+
 privateRoutes.delete('/group', checkSchema({
     urlname: {
         custom: {
@@ -38,28 +39,39 @@ privateRoutes.delete('/group', checkSchema({
         }
     },
 }), groupController.delete);
-
-privateRoutes.post('/posts', checkSchema({
-    content: {
-        isLength: {
-            errorMessage: lang.t('errors.post.length'),
-            options: { min: 3, max: 3000 },
-        },
+privateRoutes.get('/group', userController.groups);
+privateRoutes.get('/group/all', groupController.all);
+privateRoutes.post('/group/joinleave', checkSchema({
+    urlname: {
+        custom: {
+            options: async urlname => {
+                try {
+                    await Group.isUrlNameUnique(urlname);
+                    return false;
+                } catch(e) {
+                    return true;
+                }
+            },
+            errorMessage: lang.t('errors.group.urlname'),
+        }
     },
-    type: { exists: true, }
-}), postController.getAll);
-
-privateRoutes.post('/posts/user', checkSchema({
+}), userController.joinLeave);
+privateRoutes.post('/group/addPost', checkSchema({
     content: {
-        isLength: {
-            errorMessage: lang.t('errors.post.length'),
-            options: { min: 3, max: 3000 },
-        },
+        custom: {
+            options: async urlname => {
+                try {
+                    await Group.isUrlNameUnique(urlname);
+                    return false;
+                } catch(e) {
+                    return true;
+                }
+            },
+            errorMessage: lang.t('errors.group.urlname'),
+        }
     },
-    type: { exists: true, }
-}), postController.getPostsByUser);
-
-
+}), userController.joinLeave);
+privateRoutes.get('/post', postController.get);
 privateRoutes.put('/post', checkSchema({
     content: {
         isLength: {

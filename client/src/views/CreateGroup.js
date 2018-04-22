@@ -1,11 +1,11 @@
 import React from 'react';
-import GroupsContainer from "../containers/GroupsContainer";
+import CreateGroupsContainer from "../containers/CreateGroupsContainer";
 
 class CreateGroups extends React.Component {
     render() {
         return (
             <div className="container">
-                <CreateGroupContainer />
+                <CreateGroupsContainer />
             </div>
         );
     }
