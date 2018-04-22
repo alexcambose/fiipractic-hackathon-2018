@@ -1,51 +1,27 @@
 import React from 'react';
-import {Divider, List} from "material-ui";
+import Avatar from 'material-ui/Avatar';
+import {List, ListItem} from 'material-ui/List';
+import Subheader from 'material-ui/Subheader';
+import CommunicationChatBubble from 'material-ui/svg-icons/communication/chat-bubble';
+import {Link} from "react-router-dom";
 
-const GroupUsers = () => {
+const GroupUsers = ({ users }) => {
+    if(!users) return null;
+    const userList = users.map((user, i) => (
+        <Link to={"/profile/" + user.username}>
+            <ListItem
+            primaryText={user.first_name + ' ' + user.last_name}
+            leftAvatar={<Avatar src="https://cdn.vox-cdn.com/images/verge/default-avatar.v989902574302a6378709709f7baab789b242ebbb.gif"/>}
+            // rightIcon={<CommunicationChatBubble/>}
+        /></Link>
+    ));
+
     return (
-        <MobileTearSheet>
-            <List>
-                <Subheader>Recent chats</Subheader>
-                <ListItem
-                    primaryText="Brendan Lim"
-                    leftAvatar={<Avatar src="images/ok-128.jpg" />}
-                    rightIcon={<CommunicationChatBubble />}
-                />
-                <ListItem
-                    primaryText="Eric Hoffman"
-                    leftAvatar={<Avatar src="images/kolage-128.jpg" />}
-                    rightIcon={<CommunicationChatBubble />}
-                />
-                <ListItem
-                    primaryText="Grace Ng"
-                    leftAvatar={<Avatar src="images/uxceo-128.jpg" />}
-                    rightIcon={<CommunicationChatBubble />}
-                />
-                <ListItem
-                    primaryText="Kerem Suer"
-                    leftAvatar={<Avatar src="images/kerem-128.jpg" />}
-                    rightIcon={<CommunicationChatBubble />}
-                />
-                <ListItem
-                    primaryText="Raquel Parrado"
-                    leftAvatar={<Avatar src="images/raquelromanp-128.jpg" />}
-                    rightIcon={<CommunicationChatBubble />}
-                />
-            </List>
-            <Divider />
-            <List>
-                <Subheader>Previous chats</Subheader>
-                <ListItem
-                    primaryText="Chelsea Otakan"
-                    leftAvatar={<Avatar src="images/chexee-128.jpg" />}
-                />
-                <ListItem
-                    primaryText="James Anderson"
-                    leftAvatar={<Avatar src="images/jsa-128.jpg" />}
-                />
-            </List>
-        </MobileTearSheet>
-    );
+        <List>
+            <Subheader>Membri</Subheader>
+            {userList}
+        </List>
+    )
 };
 
 export default GroupUsers;

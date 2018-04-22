@@ -13,7 +13,6 @@ class App extends Component {
         done: false,
     };
     componentWillMount() {
-        console.log(this.props.user)
         if (localStorage.getItem('token') && this.props.user.username === undefined) {
             this.setState({ done: true, });
             this.props.getUserByToken(localStorage.getItem('token'));

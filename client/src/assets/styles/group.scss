@@ -7,3 +7,9 @@
   margin-bottom: 10px;
   box-shadow: 0 4px 2px -2px gray;
 }
+
+.group-body {
+  display: grid;
+  grid-template-columns: 30% auto;
+
+}
