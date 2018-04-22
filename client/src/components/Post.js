@@ -25,6 +25,7 @@ class Post extends React.Component {
         axios.put(config.apiUrl + 'post/like', { id: this.state.post._id, token: localStorage.getItem('token') })
             .then(({ data }) => {
                 this.setState({ post: data.post });
+                location.reload();
             });
     };
 
@@ -51,7 +52,7 @@ class Post extends React.Component {
                 </CardText>
                 <CardActions>
                     <div className="btn-like">
-                        <FontAwesomeIcon icon="heart" style={{cursor: 'pointer', color: post.likes.find(e => e === this.props.userId) ? 'red' : 'black', marginLeft: '6px'}} size="lg" onClick={this.toggleLike}/>
+                        {post.likes.length} <FontAwesomeIcon icon="heart" style={{cursor: 'pointer', color: post.likes.find(e => e === this.props.userId) ? 'red' : 'black', marginLeft: '6px'}} size="lg" onClick={this.toggleLike}/>
                     </div>
 
                 </CardActions>

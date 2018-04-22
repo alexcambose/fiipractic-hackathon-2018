@@ -20,6 +20,22 @@ module.exports.getAll = (req, res) => {
     });
 }
 
+module.exports.getAllPosts = (req, res) => {
+    Post.find({}, (err, posts) => {
+        if (!err) {
+            res.json({
+                success: true,
+                posts: posts,
+            });
+        } else {
+            res.json({
+                success: false,
+                errors: err,
+            });
+        }
+    });
+}
+
 module.exports.getPostsByUser = (req, res) => {
     const user = req.body.userId
     Post.find({author: user}, (err, posts) => {

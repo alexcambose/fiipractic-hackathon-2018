@@ -1,6 +1,6 @@
 import axios from 'axios';
 import config from '../../config';
-import { USER_REGISTER_FAIL, USER_REGISTER_SUCCESS, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL, GET_USER_BY_TOKEN, SET_CURRENT_USER, POST_ALL } from '../types';
+import { USER_REGISTER_FAIL, USER_REGISTER_SUCCESS, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL, GET_USER_BY_TOKEN, SET_CURRENT_USER, POST_ALL, LOGOUT } from '../types';
 import history from '../history';
 
 export const register = (username, first_name, last_name, email, password) => async dispatch => {
@@ -43,3 +43,5 @@ export const getUserByUsername = username => dispatch => {
         dispatch({ type: POST_ALL, payload: res.data.posts });    
     }).catch(err => console.log(err));
 };
+
+export const logout = () =>  dispatch => {dispatch({type: LOGOUT}); history.push('/login')};

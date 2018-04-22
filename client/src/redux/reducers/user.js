@@ -1,4 +1,4 @@
-import { COUNTER_DECREMENT, COUNTER_INCREMENT, USER_LOGIN_FAIL, USER_LOGIN_SUCCESS, GET_USER_BY_TOKEN, SET_CURRENT_USER } from '../types';
+import { COUNTER_DECREMENT, COUNTER_INCREMENT, USER_LOGIN_FAIL, USER_LOGIN_SUCCESS, GET_USER_BY_TOKEN, SET_CURRENT_USER, LOGOUT } from '../types';
 export default (state = {
     user: {
         first_name: '',
@@ -33,6 +33,9 @@ export default (state = {
         }
         case SET_CURRENT_USER: {
             return { ...state, currentUser: action.payload }
+        }
+        case LOGOUT: {
+            return { ...state, is_logged: null, user: [], currentUser: [] }
         }
         default:
             return state;

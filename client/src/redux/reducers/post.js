@@ -1,4 +1,4 @@
-import { POST_CREATE, POST_ALL } from '../types';
+import { POST_CREATE, POST_ALL, ALL_POSTS } from '../types';
 export default (state = {
     post: {
         content: "",
@@ -15,6 +15,9 @@ export default (state = {
         }
         case POST_ALL: {
             return { ...state, posts: action.payload }
+        }
+        case ALL_POSTS: {
+            return {...state, posts: action.payload}
         }
         default:
             return state;

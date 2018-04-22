@@ -57,6 +57,19 @@ privateRoutes.post('/group/joinleave', checkSchema({
     },
 }), userController.joinLeave);
 privateRoutes.post('/group/addPost', checkSchema({
+    type: { exists: true, }
+}), postController.getAll);
+
+privateRoutes.post('/posts/all', checkSchema({
+    content: {
+        isLength: {
+            errorMessage: lang.t('errors.post.length'),
+            options: { min: 3, max: 3000 },
+        },
+    },
+}), postController.getAllPosts);
+
+privateRoutes.post('/posts/user', checkSchema({
     content: {
         custom: {
             options: async urlname => {

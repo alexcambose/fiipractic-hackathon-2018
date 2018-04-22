@@ -22,4 +22,4 @@ const Post2 = ({post, user}) => (
   </Card>
 );
 
-export default Post;
+export default Post2;

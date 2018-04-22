@@ -18,8 +18,9 @@ import faCog from '@fortawesome/fontawesome-free-solid/faCog';
 import faUser from '@fortawesome/fontawesome-free-solid/faUser';
 import faUsers from '@fortawesome/fontawesome-free-solid/faUsers';
 import faHome from '@fortawesome/fontawesome-free-solid/faHome';
+import faTimes from '@fortawesome/fontawesome-free-solid/faTimes';
 
-fontawesome.library.add(brands, faCheckSquare, faCoffee, faSearch, faStar, faHeart, faCog, faUser, faUsers, faHome);
+fontawesome.library.add(brands, faCheckSquare, faCoffee, faSearch, faStar, faHeart, faCog, faUser, faUsers, faHome, faTimes);
 
 const div = document.createElement('div');
 div.id = 'app';

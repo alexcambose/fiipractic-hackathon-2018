@@ -12,7 +12,7 @@ class Login extends Component {
         if(!localStorage.getItem('token')) return <Redirect to='/login'/>;
         return (
             <section className="home-section">
-                <Navbar />
+                {/* <Navbar /> */}
                 <HomeContainer />
                 {this.props.children}
             </section>

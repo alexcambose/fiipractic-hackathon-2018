@@ -291,3 +291,34 @@
         margin-top: 20px;
     }
 }
+
+.settings-container {
+    text-align: center;
+    // display: flex;
+    // justify-content: center;
+    div {
+        // width: 100%;
+        .settings-title {
+            font-size: 2rem;
+            font-weight: 500;
+            color: rgba(0, 0, 0, .8);
+            margin-top: $home-margin;
+            margin-bottom: $home-margin/2;
+        }
+        div {
+            width: 100%;
+            .input {
+                width: 100%;
+            }
+        }
+    }
+}
+.names {
+    display: inline;
+}
+
+.btn-settings {
+    margin-top: 20px;
+    width: 25% !important;
+}
+

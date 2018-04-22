@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
     meta: {
         created_at: {type: Date, default: Date.now},
         updated_at: {type: Date, default: Date.now},
-    }
+    },
 }, {
     usePushEach: true
 });

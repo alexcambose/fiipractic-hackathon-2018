@@ -4,7 +4,7 @@ import ProfileBio from '../components/profile/ProfileBio';
 import ProfileCover from '../components/profile/ProfileCover';
 import ProfileGeneral from '../components/profile/ProfileGeneral';
 import ProfileAchievments from '../components/profile/ProfileAchievments';
-import Post2 from '../components/Post';
+import Post2 from '../components/Post2';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
