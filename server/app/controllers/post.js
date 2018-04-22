@@ -1,6 +1,41 @@
 const Post = require('../models/Post');
 const utils = require('../utils');
 
+
+module.exports.getAll = (req, res) => {
+    const userId = res.locals.user._id;
+    Post.find({author: userId}, (err, posts) => {
+        if (!err) {
+            res.json({
+                success: true,
+                posts: posts,
+            });
+        } else {
+            res.json({
+                success: false,
+                errors: err,
+            });
+        }
+    });
+}
+
+module.exports.getPostsByUser = (req, res) => {
+    const user = req.body.userId
+    Post.find({author: user}, (err, posts) => {
+        if (!err) {
+            res.json({
+                success: true,
+                posts: posts,
+            });
+        } else {
+            res.json({
+                success: false,
+                errors: err,
+            });
+        }
+    });
+}
+
 module.exports.create = async (req, res) => {
     const { content, type } = req.body;
 

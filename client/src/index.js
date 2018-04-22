@@ -25,7 +25,6 @@ const div = document.createElement('div');
 div.id = 'app';
 document.body.appendChild(div);
 
-
 ReactDOM.render(
     <MuiThemeProvider>
         <Provider store={store}>

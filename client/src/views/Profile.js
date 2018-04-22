@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 class Profile extends Component {
     state = {};
-
+    //TODO: REQUEST USERS
     render() {
         return (
             <section className="Profile-section">

@@ -18,8 +18,7 @@ const postSchema = new mongoose.Schema({
     },
     likes: {
         type: [ObjectId],
-        default: [],
-        unique: true,
+        default: []
     }
 });
 postSchema.statics.exists = function (id) {

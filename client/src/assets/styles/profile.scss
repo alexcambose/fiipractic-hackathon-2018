@@ -277,3 +277,17 @@
         }
     }
 }
+
+.create-post {
+    margin-top: $home-margin/2;
+    margin-bottom: $home-margin;
+    .create-title {
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-bottom: 20px;
+        color: rgba(0, 0, 0, .7);
+    }
+    .create-post-btn {
+        margin-top: 20px;
+    }
+}

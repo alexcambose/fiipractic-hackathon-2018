@@ -69,7 +69,7 @@ class LoginContainer extends Component {
                 name="email"
                 underlineFocusStyle={styles.underlineStyle}
                 errorText={errors.email}
-                onChange={this.handleChange}                
+                onChange={this.handleChange}              
               />
               <TextField
                 hintText="Password"

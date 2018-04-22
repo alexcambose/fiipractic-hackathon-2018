@@ -1,9 +1,11 @@
+
 const utils = require('../utils');
 const config = require('../../config');
 const _ = require('lodash');
 
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const Post = require('../models/Post');
 
 //POST
 module.exports.register = async (req, res) => {
@@ -57,6 +59,20 @@ module.exports.info = async (req, res) => {
         res.json({success: false});
     }
 };
+
+module.exports.getUserByUsername = async (req, res) => {
+    const username = req.body.username;
+    try {
+        const user = await User.findOne({username: username});
+        const posts = await Post.find({author: user._id});
+        res.json({success: true, user, posts});        
+    } catch(error) {
+        utils.error(error);
+        res.json({success: false});
+    }
+};
+
+
 
 //POST
 module.exports.update = async (req, res) => {

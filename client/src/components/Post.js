@@ -12,7 +12,6 @@ class Post extends React.Component {
     }
     componentDidMount() {
         if (!this.state.user.first_name) this.fetchUser();
-
     }
     fetchUser = () => {
             axios.get(config.apiUrl + 'user', {params: { token: localStorage.getItem('token'), id: this.state.user.id }})
@@ -25,6 +24,7 @@ class Post extends React.Component {
         axios.put(config.apiUrl + 'post/like', { id: this.state.post._id, token: localStorage.getItem('token') })
             .then(({ data }) => {
                 this.setState({ post: data.post });
+
 
             });
     };
@@ -46,7 +46,7 @@ class Post extends React.Component {
                 </CardText>
                 <CardActions>
                     <div className="btn-like">
-                        {post.likes.length} <FontAwesomeIcon icon="heart" style={{cursor: 'pointer', color: post.likes.find(e => e === this.props.userId) ? 'red' : 'black', marginLeft: '6px'}} size="lg" onClick={this.toggleLike}/>
+                        <FontAwesomeIcon icon="heart" style={{cursor: 'pointer', color: post.likes.find(e => e === this.props.userId) ? 'red' : 'black', marginLeft: '6px'}} size="lg" onClick={this.toggleLike}/>
                     </div>
                 </CardActions>
             </Card>

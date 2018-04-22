@@ -3,7 +3,12 @@ export const USER_REGISTER_FAIL = 'USER_REGISTER_FAIL';
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
 export const USER_LOGIN_FAIL = 'USER_LOGIN_FAIL';
 export const GET_USER_BY_TOKEN = 'GET_USER_BY_TOKEN';
+
 export const GROUP_FETCH = 'GROUP_FETCH';
 export const GROUP_ADD_POST = 'GROUP_ADD_POST';
 export const GROUP_ADD = 'GROUP_ADD';
 export const GROUP_REMOVE_POST = 'GROUP_REMOVE_POST';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+
+export const POST_CREATE = 'POST_CREATE';
+export const POST_ALL = 'POST_ALL';
