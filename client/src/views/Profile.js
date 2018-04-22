@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'proptypes';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import ProfileContainer from '../containers/ProfileContainer';
 
 import { connect } from 'react-redux';
@@ -13,6 +14,7 @@ class Profile extends Component {
             <section className="Profile-section">
                 <Navbar />
                 <ProfileContainer user={this.props.user} />
+                <Footer />
             </section>
         );
     }

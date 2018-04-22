@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'proptypes';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import TimelineContainer from '../containers/TimelineContainer';
 import {Redirect} from "react-router";
 import {connect} from "react-redux";
@@ -13,6 +14,7 @@ class Timeline extends Component {
             <section className="timeline-section">
                 <Navbar />
                 <TimelineContainer />
+                <Footer />
             </section>
         );
     }

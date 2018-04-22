@@ -10,7 +10,7 @@ class Login extends Component {
     render() {
         return (
             <section className="login-section">
-                {this.props.logged && <Redirect to="/home" />}
+                {this.props.logged && <Redirect to="/timeline" />}
                 <LoginContainer />
             </section>
         );

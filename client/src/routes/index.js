@@ -8,7 +8,7 @@ import Profile from '../views/Profile';
 import CreateGroup from "../views/CreateGroup";
 import AllGroups from "../views/AllGroups";
 import Settings from '../views/Settings';
-import Timeline from '../views/Timeline;
+import Timeline from '../views/Timeline';
 export default [
     {
         path: '/',
