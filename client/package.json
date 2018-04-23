@@ -63,6 +63,7 @@
     "@fortawesome/fontawesome-free-brands": "^5.0.10",
     "@fortawesome/fontawesome-free-solid": "^5.0.10",
     "@fortawesome/react-fontawesome": "0.0.18",
-    "material-ui-rating": "^1.4.1"
+    "material-ui-rating": "^1.4.1",
+    "rss-parser": "^3.1.2"
   }
 }
