@@ -1,6 +1,6 @@
 # fiipractic-hackathon-2018
 Social network for facilitating communication between teachers and students. This project was made in 24 hours during [Fii Practic Hackathon](https://fiipractic.asii.ro/hackathon) in 2018. 
-This is was a *first* place winner project that we presented at the end of the hackathon. Many thanks to the [Fii Practic](https://fiipractic.asii.ro/) awesome people and organisers .
+This is was a *first* place winner project that we presented at the end of the hackathon. Many thanks to the [Fii Practic](https://fiipractic.asii.ro/) awesome people and organisers.
 
 ## Install
 [Clone](https://git-scm.com/docs/git-clone) this repository.
